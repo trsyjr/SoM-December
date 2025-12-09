@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feature of the Month - Page 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen font-sans px-4 relative overflow-hidden">
+
+  <!-- Circle Image + Podium Section -->
+  <div class="relative z-10 flex flex-col items-center space-y-4">
+
+    <!-- Bigger Circle Image -->
+    <img src="Assets/rider1.jpg" alt="Rider 1"
+         class="w-80 h-80 rounded-full object-cover border-4 border-red-600 shadow-lg">
+
+    <!-- Name and Position -->
+    <h2 class="text-[5rem] font-bold text-red-500 text-center leading-none">GELVES C. ALMIÑE</h2>
+    <p class="text-xl text-green-500 text-center">PROJECT DEVELOPMENT OFFICER III</p>
+
+    <!-- Podium Representation -->
+    <div class="flex items-end justify-center mt-12 space-x-4 w-full max-w-lg">
+      
+      <!-- 2nd Place -->
+      <div class="flex flex-col items-center">
+        <div class="bg-gray-700 w-24 h-24 rounded-t-md mt-2"></div>
+        <p class="mt-2 text-white">2nd</p>
+      </div>
+
+      <!-- 1st Place -->
+      <div class="flex flex-col items-center">
+        <img src="Assets/TROPHY.png" alt="1st Place" class="w-32 h-32 object-cover shadow-lg mb-2">
+        <div class="bg-red-600 w-32 h-32 rounded-t-md shadow-lg"></div>
+        <p class="mt-2 text-white font-bold">1st</p>
+      </div>
+
+      <!-- 3rd Place -->
+      <div class="flex flex-col items-center">
+        <div class="bg-gray-700 w-20 h-20 rounded-t-md mt-2"></div>
+        <p class="mt-2 text-white">3rd</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="flex space-x-8 mt-12 z-10 relative">
+    <a href="index.html" class="bg-gray-700 px-6 py-3 rounded-full hover:bg-gray-600 transition">Prev</a>
+    <a href="page2.html" class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 transition">Next</a>
+  </div>
+
+  <!-- Fireworks + Confetti Script -->
+  <script>
+    window.onload = () => {
+      // CONFETTI BURSTS (already in your code)
+      const duration = 3000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 } });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
+
+      // EXTRA FIREWORKS — center bursts
+      let fireworkInterval = setInterval(() => {
+        confetti({
+          particleCount: 80,
+          spread: 100,
+          startVelocity: 40,
+          origin: { x: Math.random(), y: Math.random() * 0.5 }
+        });
+      }, 600);
+
+      setTimeout(() => clearInterval(fireworkInterval), 3000);
+    };
+  </script>
+
+</body>
+</html>

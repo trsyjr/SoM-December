@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Know About Me - Page 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- SwiperJS CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+
+  <!-- SwiperJS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center px-4 py-8">
+
+  <!-- Header -->
+  <h1 class="text-4xl md:text-5xl font-bold text-red-600 mb-8 text-center">Know About Me</h1>
+
+  <!-- Swiper Carousel -->
+  <div class="w-full max-w-3xl">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide flex justify-center">
+          <img src="Assets/me1.jpg" alt="Me 1" class="rounded-xl shadow-lg w-full object-cover h-64 md:h-96" />
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide flex justify-center">
+          <img src="Assets/me2.jpg" alt="Me 2" class="rounded-xl shadow-lg w-full object-cover h-64 md:h-96" />
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide flex justify-center">
+          <img src="Assets/me3.jpg" alt="Me 3" class="rounded-xl shadow-lg w-full object-cover h-64 md:h-96" />
+        </div>
+      </div>
+      <!-- Navigation Buttons -->
+      <div class="swiper-button-next text-red-600"></div>
+      <div class="swiper-button-prev text-red-600"></div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <div class="mt-8 max-w-3xl text-center text-lg md:text-xl text-gray-200">
+    <p>
+      Hi! I’m Marc Marquez, a passionate MotoGP rider. I love speed, adrenaline, and pushing myself to the limit.
+      Racing has been my life, and I enjoy sharing my experiences, training tips, and behind-the-scenes moments with my fans.
+    </p>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="flex space-x-8 mt-12">
+    <a href="page1.html" class="bg-gray-700 px-6 py-3 rounded-full hover:bg-gray-600 transition">Prev</a>
+    <a href="page3.html" class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 transition">Next</a>
+  </div>
+
+  <!-- Initialize SwiperJS -->
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+    });
+  </script>
+</body>
+</html>

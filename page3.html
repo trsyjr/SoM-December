@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Hobbies I Do - Page 3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- SwiperJS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Vanta.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    #vanta-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .swiper-slide {
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+    .swiper-slide-active {
+      transform: scale(1.05) rotate(-1deg);
+      filter: brightness(1.1);
+    }
+    .swiper-slide-next,
+    .swiper-slide-prev {
+      transform: scale(0.9) rotate(1deg);
+      filter: brightness(0.8);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center px-4 py-8">
+
+  <!-- Vanta.js Background -->
+  <div id="vanta-bg"></div>
+
+  <!-- Header -->
+  <h1 class="text-4xl md:text-5xl font-bold text-green-500 mb-8 text-center relative z-10">
+    What Hobbies I Do
+  </h1>
+
+  <!-- Swiper Carousel -->
+  <div class="w-full max-w-3xl relative z-10">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide flex justify-center">
+          <img src="Assets/hobby1.jpg" alt="Hobby 1" class="rounded-xl shadow-lg w-full object-cover h-64 md:h-96" />
+        </div>
+        <div class="swiper-slide flex justify-center">
+          <img src="Assets/hobby2.jpg" alt="Hobby 2" class="rounded-xl shadow-lg w-full object-cover h-64 md:h-96" />
+        </div>
+        <div class="swiper-slide flex justify-center">
+          <img src="Assets/hobby3.jpg" alt="Hobby 3" class="rounded-xl shadow-lg w-full object-cover h-64 md:h-96" />
+        </div>
+      </div>
+      <div class="swiper-button-next text-green-500"></div>
+      <div class="swiper-button-prev text-green-500"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <div class="mt-8 max-w-3xl text-center text-lg md:text-xl text-gray-200 relative z-10">
+    <p>
+      Besides racing, I enjoy hobbies that help me recharge — from off-track biking, cycling, gaming, to fitness. These activities sharpen my focus and keep my adrenaline ready!
+    </p>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="flex space-x-8 mt-12 relative z-10">
+    <a href="page2.html" class="bg-gray-700 px-6 py-3 rounded-full hover:bg-gray-600 transition">Prev</a>
+    <a href="page4.html" class="bg-green-600 px-6 py-3 rounded-full hover:bg-green-700 transition">Next</a>
+  </div>
+
+  <!-- Initialize SwiperJS -->
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      speed: 800,
+      slidesPerView: 1,
+      centeredSlides: true,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+  </script>
+
+  <!-- Initialize Vanta.js -->
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x22c55e,       // green lines
+      backgroundColor: 0x111827, // dark gray bg
+      points: 15.00,
+      maxDistance: 25.00,
+      spacing: 20.00
+    });
+  </script>
+
+</body>
+</html>
