@@ -40,23 +40,25 @@ body {
   100% { background-position: 80px 80px; }
 }
 
+/* Swiper slide images */
 .swiper-slide img {
   width: 100%;
-  height: auto;
-  max-height: 500px;
-  border-radius: 1rem;
+  height: 500px;
   object-fit: cover;
+  border-radius: 1rem;
   box-shadow: 0 0 25px rgba(0,255,0,0.5);
 }
 
+/* Swiper buttons */
 .swiper-button-next, .swiper-button-prev {
   color: #22c55e;
 }
 
+/* Description */
 .description {
   max-width: 3xl;
   margin: 1.5rem auto 0;
-  text-align: center;
+  text-align: justify;
   color: #d1d5db;
   font-size: 1.125rem;
 }
@@ -69,11 +71,11 @@ body {
 
 <!-- HEADER -->
 <h1 class="text-center text-4xl md:text-5xl font-bold text-red-600 animate__animated animate__fadeInDown mt-12">
-  My Motorcycle Collection
+  Fun Fact
 </h1>
 
 <!-- SWIPER CAROUSEL -->
-<div class="max-w-5xl mx-auto mt-8 animate__animated animate__fadeInUp animate__delay-1s">
+<div class="max-w-6xl mx-auto mt-8 animate__animated animate__fadeInUp animate__delay-1s">
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide"><img src="Assets/bike1.jpg" alt="Bike 1"/></div>
@@ -88,8 +90,9 @@ body {
 </div>
 
 <!-- DESCRIPTION BELOW CAROUSEL -->
-<p class="description animate__animated animate__fadeInUp animate__delay-2s">
-  These are the machines that fuel my adrenaline — high performance, precision, and sheer excitement. Each bike tells a story of speed and passion.
+<p class="max-w-3xl mx-auto text-justify text-lg md:text-xl text-gray-200 mb-12 animate__animated animate__fadeInUp">
+  Some of my most memorable experiences include a family trip to Zambales in 2023. One of my bucket list goals is to visit Japan with my family and own a house. 
+  I’ve tried surfing, but it’s harder than I expected! I prefer dogs as pets, and if I won the lottery tomorrow, my first purchase would be a red Ford Mustang GT. 
 </p>
 
 <!-- NAVIGATION -->
@@ -100,24 +103,18 @@ body {
 
 <!-- SCRIPT -->
 <script>
-  const swiper = new Swiper(".mySwiper", {
-    loop: true,
-    centeredSlides: true,
-    slidesPerView: 1,
-    spaceBetween: 30,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-  });
+const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  centeredSlides: true,
+  slidesPerView: 'auto',
+  spaceBetween: 30,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: { el: ".swiper-pagination", clickable: true },
+  autoplay: { delay: 3000, disableOnInteraction: false },
+});
 </script>
 
 </body>
