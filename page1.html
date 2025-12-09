@@ -8,14 +8,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 
 <body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen font-sans px-4 relative overflow-hidden">
 
   <!-- MAIN CONTENT -->
-  <div class="relative z-10 flex flex-col items-center space-y-4 mt-16 sm:mt-10">
+  <div class="relative z-10 flex flex-col items-center space-y-4 mt-16 sm:mt-12 md:mt-16">
 
     <!-- Profile Image -->
     <img src="Assets/rider1.jpg" alt="Rider 1"
@@ -24,7 +23,7 @@
                 animate__animated animate__zoomIn animate__slow">
 
     <!-- Name -->
-    <h2 class="text-4xl sm:text-5xl md:text-[5rem] font-bold text-red-500 text-center leading-none
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-red-500 text-center leading-none
                animate__animated animate__fadeInUp animate__delay-1s">
       GELVES C. ALMIÑE
     </h2>
@@ -36,13 +35,13 @@
     </p>
 
     <!-- Podium -->
-    <div class="flex items-end justify-center mt-12 space-x-4 w-full max-w-xl
+    <div class="flex items-end justify-center mt-12 space-x-4 sm:space-x-6 md:space-x-8 w-full max-w-xl
                 animate__animated animate__fadeInUp animate__delay-3s">
 
       <!-- 2nd -->
       <div class="flex flex-col items-center">
         <div class="bg-gray-700 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-t-md"></div>
-        <p class="mt-2 text-white text-sm sm:text-base">2nd</p>
+        <p class="mt-2 text-white text-sm sm:text-base md:text-base">2nd</p>
       </div>
 
       <!-- 1st -->
@@ -51,27 +50,27 @@
              class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover shadow-lg mb-2 
                     animate__animated animate__bounceIn animate__delay-3s">
         <div class="bg-red-600 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-t-md shadow-lg"></div>
-        <p class="mt-2 text-white font-bold text-sm sm:text-base">1st</p>
+        <p class="mt-2 text-white font-bold text-sm sm:text-base md:text-base">1st</p>
       </div>
 
       <!-- 3rd -->
       <div class="flex flex-col items-center">
         <div class="bg-gray-700 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-t-md"></div>
-        <p class="mt-2 text-white text-sm sm:text-base">3rd</p>
+        <p class="mt-2 text-white text-sm sm:text-base md:text-base">3rd</p>
       </div>
 
     </div>
   </div>
 
   <!-- Navigation -->
-  <div class="flex space-x-8 mt-12 z-10 relative
+  <div class="flex space-x-4 sm:space-x-6 md:space-x-8 mt-12 z-10 relative
               animate__animated animate__fadeIn animate__delay-4s">
     <a href="index.html"
-       class="bg-gray-700 px-6 py-3 rounded-full hover:bg-gray-600 transition text-sm sm:text-base">
+       class="bg-gray-700 px-6 py-3 sm:px-8 sm:py-3 rounded-full hover:bg-gray-600 transition text-sm sm:text-base md:text-base">
       Prev
     </a>
     <a href="page2.html"
-       class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 transition text-sm sm:text-base">
+       class="bg-red-600 px-6 py-3 sm:px-8 sm:py-3 rounded-full hover:bg-red-700 transition text-sm sm:text-base md:text-base">
       Next
     </a>
   </div>
@@ -79,10 +78,6 @@
   <!-- Confetti -->
   <script>
   window.onload = () => {
-
-    /* -----------------------------------------
-       LONGER CONFETTI SIDE BURSTS (6 seconds)
-    ------------------------------------------ */
     const duration = 6000;
     const end = Date.now() + duration;
 
@@ -92,9 +87,6 @@
       if (Date.now() < end) requestAnimationFrame(frame);
     })();
 
-    /* -----------------------------------------
-       MUCH LONGER FIREWORKS (10 seconds)
-    ------------------------------------------ */
     let fireworkInterval = setInterval(() => {
       confetti({
         particleCount: 120,
@@ -103,12 +95,11 @@
         ticks: 200,
         origin: { x: Math.random(), y: Math.random() * 0.5 }
       });
-    }, 500); // more frequent bursts
+    }, 500);
 
-    setTimeout(() => clearInterval(fireworkInterval), 10000); // 10 seconds
+    setTimeout(() => clearInterval(fireworkInterval), 10000);
   };
-</script>
-
+  </script>
 
 </body>
 </html>

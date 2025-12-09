@@ -19,6 +19,21 @@
       margin: 0;
       padding: 0;
     }
+
+    /* Optional: subtle scaling effect on the flag */
+    .flag-img {
+      transition: transform 0.5s ease;
+    }
+    @media (min-width: 1024px) {
+      .flag-img {
+        transform: scale(1.25) translateY(-10%);
+      }
+    }
+    @media (min-width: 1440px) {
+      .flag-img {
+        transform: scale(1.5) translateY(-10%);
+      }
+    }
   </style>
 </head>
 
@@ -34,12 +49,11 @@
   <!-- CENTERED CONTENT WRAPPER -->
   <div class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4">
 
-    <!-- FLAG centered behind text (moved up) -->
+    <!-- FLAG centered behind text -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-    <img src="Assets/FLAG.png"
-        class="w-[60%] sm:w-[45%] md:w-[30%] lg:w-[25%]
-                opacity-70 animate__animated animate__fadeIn animate__slow
-                -translate-y-40" />
+      <img src="Assets/FLAG.png"
+           class="flag-img w-[60%] sm:w-[45%] md:w-[30%] lg:w-[25%]
+                  opacity-70 animate__animated animate__fadeIn animate__slow -translate-y-40" />
     </div>
 
     <!-- TITLE -->

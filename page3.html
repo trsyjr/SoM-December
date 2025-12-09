@@ -33,7 +33,6 @@
       height: 100%;
       z-index: -1;
     }
-
     /* Swiper slide animation effect */
     .swiper-slide {
       transition: transform 0.5s ease, filter 0.5s ease;
@@ -56,7 +55,7 @@
   <div id="vanta-bg"></div>
 
   <!-- Header -->
-  <h1 class="text-4xl md:text-5xl font-bold text-green-500 mb-8 text-center relative z-10
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-green-500 mb-8 text-center relative z-10
              animate__animated animate__fadeInDown">
     What Hobbies I Do
   </h1>
@@ -71,28 +70,24 @@
         <div class="swiper-slide flex justify-center">
           <img src="Assets/hobby1.jpg"
                alt="Hobby 1"
-               class="w-full object-cover rounded-xl h-56 sm:h-72 md:h-96 shadow-lg" />
+               class="w-full object-cover rounded-xl h-56 sm:h-72 md:h-80 lg:h-96 shadow-lg" />
         </div>
 
         <!-- Slide 2 -->
         <div class="swiper-slide flex justify-center">
           <img src="Assets/hobby2.jpg"
                alt="Hobby 2"
-               class="w-full object-cover rounded-xl h-56 sm:h-72 md:h-96 shadow-lg" />
+               class="w-full object-cover rounded-xl h-56 sm:h-72 md:h-80 lg:h-96 shadow-lg" />
         </div>
 
         <!-- Slide 3 -->
         <div class="swiper-slide flex justify-center">
           <img src="Assets/hobby3.jpg"
                alt="Hobby 3"
-               class="w-full object-cover rounded-xl h-56 sm:h-72 md:h-96 shadow-lg" />
+               class="w-full object-cover rounded-xl h-56 sm:h-72 md:h-80 lg:h-96 shadow-lg" />
         </div>
 
       </div>
-
-      <!-- Navigation -->
-      <!-- <div class="swiper-button-next text-green-400 hover:text-green-200 transition"></div>
-      <div class="swiper-button-prev text-green-400 hover:text-green-200 transition"></div> -->
 
       <!-- Pagination -->
       <div class="swiper-pagination"></div>
@@ -100,7 +95,7 @@
   </div>
 
   <!-- Description -->
-  <div class="mt-8 max-w-3xl text-justify text-lg md:text-xl text-gray-200 relative z-10
+  <div class="mt-8 max-w-3xl text-justify text-base sm:text-lg md:text-xl text-gray-200 relative z-10
             animate__animated animate__fadeInUp animate__delay-1s">
   <p>
     Friends would describe me as playful, resourceful, and cheerful. I enjoy Indie pop and Filipino rock, and if I had a personal theme song, it would reflect my fun-loving 
@@ -130,10 +125,6 @@
       slidesPerView: 1,
       centeredSlides: true,
       spaceBetween: 30,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,

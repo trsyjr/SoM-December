@@ -53,7 +53,7 @@ html, body {
   padding: 0 1rem;
 }
 
-/* Fix centering + responsiveness */
+/* Swiper default size (100%) */
 .swiper {
   width: 100%;
   max-width: 650px;
@@ -69,7 +69,8 @@ html, body {
 .swiper-slide img {
   border-radius: 1rem;
   width: 100%;
-  height: 18rem;
+  height: auto;
+  max-height: 24rem;
   object-fit: cover;
 }
 
@@ -78,7 +79,6 @@ html, body {
   transform: scale(1.05) rotate(-1deg);
   filter: brightness(1.15);
 }
-
 .swiper-slide-next,
 .swiper-slide-prev {
   transform: scale(0.9);
@@ -94,12 +94,28 @@ html, body {
   text-decoration: none;
   display: inline-block;
 }
-
 .btn-prev { background-color: #374151; }
 .btn-prev:hover { background-color: #4b5563; }
-
 .btn-next { background-color: #22c55e; }
 .btn-next:hover { background-color: #16a34a; }
+
+/* Scaling for larger DPI / zoom */
+@media (min-width: 1440px) { /* ~125% scale */
+  .swiper {
+    max-width: 800px;
+  }
+  .swiper-slide img {
+    max-height: 32rem;
+  }
+}
+@media (min-width: 1920px) { /* ~150% scale */
+  .swiper {
+    max-width: 1000px;
+  }
+  .swiper-slide img {
+    max-height: 40rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -110,36 +126,31 @@ html, body {
 <div class="content animate__animated animate__fadeInUp animate__slow">
 
   <!-- Header -->
-  <h1 class="text-4xl md:text-5xl font-bold text-red-600 mb-8 animate__animated animate__fadeInDown">
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-red-600 mb-8 animate__animated animate__fadeInDown">
     Who Am I Really
   </h1>
 
-  <!-- Carousel -->
+  <!-- Swiper Carousel -->
   <div class="swiper-container-wrapper mb-8 animate__animated animate__fadeInUp">
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="Assets/me1.jpg" alt="Me 1"/></div>
+        <div class="swiper-slide"><img src="Assets/BG.jpg" alt="Me 1"/></div>
         <div class="swiper-slide"><img src="Assets/me2.jpg" alt="Me 2"/></div>
         <div class="swiper-slide"><img src="Assets/me3.jpg" alt="Me 3"/></div>
       </div>
-
-      <!-- <div class="swiper-button-next text-green-500"></div>
-      <div class="swiper-button-prev text-green-500"></div> -->
       <div class="swiper-pagination"></div>
     </div>
   </div>
 
   <!-- Description -->
   <p class="max-w-3xl mx-auto text-justify text-lg md:text-xl text-gray-200 mb-12 animate__animated animate__fadeInUp">
-  I have a few comfort foods I can’t resist, including DD Choco Butternut and Pancit Canton. On weekends, I love riding my motorcycle, and my favorite local spot is Pugpog 
-  Bikers Highlands Cafe in Bulacan. I enjoy exploring all kinds of landscapes—beach, mountains, or city—especially when I’m on my bike. My hobbies and lifestyle reflect my 
-  adventurous and curious personality.
-  <br>
-  <br>
-  Currently, I don’t have time to read much, but I love rewatching classics like the 1994 film "Mistah". My favorite fictional character is Conan from Detective Conan, 
-  though if I were a fictional character, I’d be Hanamichi Sakuragi. While I don’t listen to podcasts or audiobooks, I enjoy playing Mobile Legends Bang Bang.
+    I have a few comfort foods I can’t resist, including DD Choco Butternut and Pancit Canton. On weekends, I love riding my motorcycle, and my favorite local spot is Pugpog 
+    Bikers Highlands Cafe in Bulacan. I enjoy exploring all kinds of landscapes—beach, mountains, or city—especially when I’m on my bike. My hobbies and lifestyle reflect my 
+    adventurous and curious personality.
+    <br><br>
+    Currently, I don’t have time to read much, but I love rewatching classics like the 1994 film "Mistah". My favorite fictional character is Conan from Detective Conan, 
+    though if I were a fictional character, I’d be Hanamichi Sakuragi. While I don’t listen to podcasts or audiobooks, I enjoy playing Mobile Legends Bang Bang.
   </p>
-
 
   <!-- Buttons -->
   <div class="flex justify-center space-x-4 animate__animated animate__fadeInUp">
@@ -149,7 +160,7 @@ html, body {
 </div>
 
 <script>
-/* Hyperspace Starfield Animation */
+/* Starfield Canvas */
 (function() {
   const canvas = document.getElementById('starfield');
   const ctx = canvas.getContext('2d');
@@ -159,9 +170,8 @@ html, body {
 
   const numStars = 450;
   const stars = [];
-
   for (let i = 0; i < numStars; i++) {
-    stars.push({ x: (Math.random() - 0.5) * w, y: (Math.random() - 0.5) * h, z: Math.random() * w });
+    stars.push({ x: (Math.random()-0.5)*w, y:(Math.random()-0.5)*h, z: Math.random()*w });
   }
 
   window.addEventListener("resize", () => {
@@ -171,30 +181,21 @@ html, body {
 
   function draw() {
     ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, w, h);
-
+    ctx.fillRect(0,0,w,h);
     for (let s of stars) {
       s.z -= 18;
-
-      if (s.z <= 0) {
-        s.x = (Math.random() - 0.5) * w;
-        s.y = (Math.random() - 0.5) * h;
-        s.z = w;
-      }
-
+      if (s.z <= 0) { s.x=(Math.random()-0.5)*w; s.y=(Math.random()-0.5)*h; s.z=w; }
       const k = 300 / s.z;
-      const px = s.x * k + w / 2;
-      const py = s.y * k + h / 2;
-      const size = (1 - s.z / w) * 3;
-
+      const px = s.x*k + w/2;
+      const py = s.y*k + h/2;
+      const size = (1 - s.z/w)*3;
       ctx.beginPath();
       ctx.strokeStyle = "white";
       ctx.lineWidth = size;
-      ctx.moveTo(px, py);
-      ctx.lineTo(px - s.x * 0.015, py - s.y * 0.015);
+      ctx.moveTo(px,py);
+      ctx.lineTo(px - s.x*0.015, py - s.y*0.015);
       ctx.stroke();
     }
-
     requestAnimationFrame(draw);
   }
   draw();
@@ -207,7 +208,6 @@ new Swiper(".mySwiper", {
   slidesPerView: 1,
   centeredSlides: true,
   spaceBetween: 30,
-  navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
   pagination: { el: ".swiper-pagination", clickable: true },
   autoplay: { delay: 3000, disableOnInteraction: false },
 });
