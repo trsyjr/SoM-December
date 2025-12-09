@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Motorcycle Collection - Page 5</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<!-- SwiperJS CSS & JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<style>
+body {
+  background: #0a0a0a;
+  background-image: radial-gradient(#111 1px, transparent 1px),
+                    radial-gradient(#111 1px, transparent 1px);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  overflow-x: hidden;
+}
+
+.hud-lines {
+  position: fixed;
+  inset: 0;
+  background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  animation: gridMove 15s linear infinite;
+}
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(0,255,0,0.5);
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #22c55e;
+}
+
+.description {
+  max-width: 3xl;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  color: #d1d5db;
+  font-size: 1.125rem;
+}
+</style>
+</head>
+
+<body class="text-white">
+
+<div class="hud-lines"></div>
+
+<!-- HEADER -->
+<h1 class="text-center text-4xl md:text-5xl font-bold text-red-600 animate__animated animate__fadeInDown mt-12">
+  My Motorcycle Collection
+</h1>
+
+<!-- SWIPER CAROUSEL -->
+<div class="max-w-5xl mx-auto mt-8 animate__animated animate__fadeInUp animate__delay-1s">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="Assets/bike1.jpg" alt="Bike 1"/></div>
+      <div class="swiper-slide"><img src="Assets/bike2.jpg" alt="Bike 2"/></div>
+      <div class="swiper-slide"><img src="Assets/bike3.jpg" alt="Bike 3"/></div>
+      <div class="swiper-slide"><img src="Assets/bike4.jpg" alt="Bike 4"/></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!-- DESCRIPTION BELOW CAROUSEL -->
+<p class="description animate__animated animate__fadeInUp animate__delay-2s">
+  These are the machines that fuel my adrenaline — high performance, precision, and sheer excitement. Each bike tells a story of speed and passion.
+</p>
+
+<!-- NAVIGATION -->
+<div class="flex justify-center space-x-6 mt-12 mb-10">
+  <a href="page4.html" class="px-6 py-3 bg-gray-700 rounded-full hover:bg-gray-600 transition font-bold">Prev</a>
+  <a href="finish.html" class="px-6 py-3 bg-red-600 rounded-full hover:bg-red-700 transition font-bold">Finish</a>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+  });
+</script>
+
+</body>
+</html>

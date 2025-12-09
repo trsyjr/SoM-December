@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finish Line</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<!-- SwiperJS CSS & JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<!-- Confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+<style>
+body {
+  background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+  overflow-x: hidden;
+  color: white;
+  font-family: sans-serif;
+}
+#finish-lines {
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(90deg, #22c55e 0 2px, transparent 2px 10px),
+                    repeating-linear-gradient(0deg, #22c55e 0 2px, transparent 2px 10px);
+  opacity: 0.05;
+  pointer-events: none;
+  animation: moveLines 10s linear infinite;
+}
+@keyframes moveLines {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 100px 100px, 100px 100px; }
+}
+.swiper-slide img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(255,255,0,0.5);
+}
+</style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen px-4">
+
+<div id="finish-lines"></div>
+
+<!-- FINISH LINE TEXT -->
+<h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-yellow-400 text-center animate__animated animate__zoomIn mt-12">
+  🏁 Finish Line! 🏁
+</h1>
+<p class="text-center text-gray-300 max-w-2xl mt-4 text-lg sm:text-xl animate__animated animate__fadeInUp animate__delay-1s">
+  Congratulations! You’ve reached the end of this racing journey. Celebrate the ride and the adrenaline-filled moments!
+</p>
+
+<!-- SWIPER HIGHLIGHT CAROUSEL -->
+<div class="max-w-5xl w-full mt-10 animate__animated animate__fadeInUp animate__delay-2s">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="Assets/finish1.jpg" alt="Highlight 1"></div>
+      <div class="swiper-slide"><img src="Assets/finish2.jpg" alt="Highlight 2"></div>
+      <div class="swiper-slide"><img src="Assets/finish3.jpg" alt="Highlight 3"></div>
+    </div>
+    <div class="swiper-button-next text-yellow-400"></div>
+    <div class="swiper-button-prev text-yellow-400"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<div class="flex justify-center space-x-6 mt-12 mb-10 animate__animated animate__fadeInUp animate__delay-3s">
+  <a href="page5.html" class="px-6 py-3 bg-gray-700 rounded-full hover:bg-gray-600 transition font-bold">Prev</a>
+  <a href="index.html" class="px-6 py-3 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition font-bold">Home</a>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  // Initialize Swiper
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    autoplay: { delay: 4000, disableOnInteraction: false },
+  });
+
+  // Confetti effect
+  function launchConfetti() {
+    const duration = 8000; // 8 seconds
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+      if (Date.now() < end) requestAnimationFrame(frame);
+    })();
+  }
+
+  window.onload = launchConfetti;
+</script>
+
+</body>
+</html>

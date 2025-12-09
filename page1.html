@@ -4,82 +4,111 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feature of the Month - Page 1</title>
-  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Confetti Library -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 
 <body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen font-sans px-4 relative overflow-hidden">
 
-  <!-- Circle Image + Podium Section -->
-  <div class="relative z-10 flex flex-col items-center space-y-4">
+  <!-- MAIN CONTENT -->
+  <div class="relative z-10 flex flex-col items-center space-y-4 mt-16 sm:mt-10">
 
-    <!-- Bigger Circle Image -->
+    <!-- Profile Image -->
     <img src="Assets/rider1.jpg" alt="Rider 1"
-         class="w-80 h-80 rounded-full object-cover border-4 border-red-600 shadow-lg">
+         class="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full 
+                object-cover border-4 border-red-600 shadow-lg
+                animate__animated animate__zoomIn animate__slow">
 
-    <!-- Name and Position -->
-    <h2 class="text-[5rem] font-bold text-red-500 text-center leading-none">GELVES C. ALMIÑE</h2>
-    <p class="text-xl text-green-500 text-center">PROJECT DEVELOPMENT OFFICER III</p>
+    <!-- Name -->
+    <h2 class="text-4xl sm:text-5xl md:text-[5rem] font-bold text-red-500 text-center leading-none
+               animate__animated animate__fadeInUp animate__delay-1s">
+      GELVES C. ALMIÑE
+    </h2>
 
-    <!-- Podium Representation -->
-    <div class="flex items-end justify-center mt-12 space-x-4 w-full max-w-lg">
-      
-      <!-- 2nd Place -->
+    <!-- Position -->
+    <p class="text-lg sm:text-xl md:text-2xl text-green-500 text-center
+              animate__animated animate__fadeInUp animate__delay-2s">
+      PROJECT DEVELOPMENT OFFICER III
+    </p>
+
+    <!-- Podium -->
+    <div class="flex items-end justify-center mt-12 space-x-4 w-full max-w-xl
+                animate__animated animate__fadeInUp animate__delay-3s">
+
+      <!-- 2nd -->
       <div class="flex flex-col items-center">
-        <div class="bg-gray-700 w-24 h-24 rounded-t-md mt-2"></div>
-        <p class="mt-2 text-white">2nd</p>
+        <div class="bg-gray-700 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-t-md"></div>
+        <p class="mt-2 text-white text-sm sm:text-base">2nd</p>
       </div>
 
-      <!-- 1st Place -->
+      <!-- 1st -->
       <div class="flex flex-col items-center">
-        <img src="Assets/TROPHY.png" alt="1st Place" class="w-32 h-32 object-cover shadow-lg mb-2">
-        <div class="bg-red-600 w-32 h-32 rounded-t-md shadow-lg"></div>
-        <p class="mt-2 text-white font-bold">1st</p>
+        <img src="Assets/TROPHY.png" alt="1st Place"
+             class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover shadow-lg mb-2 
+                    animate__animated animate__bounceIn animate__delay-3s">
+        <div class="bg-red-600 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-t-md shadow-lg"></div>
+        <p class="mt-2 text-white font-bold text-sm sm:text-base">1st</p>
       </div>
 
-      <!-- 3rd Place -->
+      <!-- 3rd -->
       <div class="flex flex-col items-center">
-        <div class="bg-gray-700 w-20 h-20 rounded-t-md mt-2"></div>
-        <p class="mt-2 text-white">3rd</p>
+        <div class="bg-gray-700 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-t-md"></div>
+        <p class="mt-2 text-white text-sm sm:text-base">3rd</p>
       </div>
 
     </div>
   </div>
 
-  <!-- Navigation Buttons -->
-  <div class="flex space-x-8 mt-12 z-10 relative">
-    <a href="index.html" class="bg-gray-700 px-6 py-3 rounded-full hover:bg-gray-600 transition">Prev</a>
-    <a href="page2.html" class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 transition">Next</a>
+  <!-- Navigation -->
+  <div class="flex space-x-8 mt-12 z-10 relative
+              animate__animated animate__fadeIn animate__delay-4s">
+    <a href="index.html"
+       class="bg-gray-700 px-6 py-3 rounded-full hover:bg-gray-600 transition text-sm sm:text-base">
+      Prev
+    </a>
+    <a href="page2.html"
+       class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 transition text-sm sm:text-base">
+      Next
+    </a>
   </div>
 
-  <!-- Fireworks + Confetti Script -->
+  <!-- Confetti -->
   <script>
-    window.onload = () => {
-      // CONFETTI BURSTS (already in your code)
-      const duration = 3000;
-      const end = Date.now() + duration;
+  window.onload = () => {
 
-      (function frame() {
-        confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 } });
-        confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 } });
-        if (Date.now() < end) requestAnimationFrame(frame);
-      })();
+    /* -----------------------------------------
+       LONGER CONFETTI SIDE BURSTS (6 seconds)
+    ------------------------------------------ */
+    const duration = 6000;
+    const end = Date.now() + duration;
 
-      // EXTRA FIREWORKS — center bursts
-      let fireworkInterval = setInterval(() => {
-        confetti({
-          particleCount: 80,
-          spread: 100,
-          startVelocity: 40,
-          origin: { x: Math.random(), y: Math.random() * 0.5 }
-        });
-      }, 600);
+    (function frame() {
+      confetti({ particleCount: 6, angle: 60, spread: 70, origin: { x: 0 } });
+      confetti({ particleCount: 6, angle: 120, spread: 70, origin: { x: 1 } });
+      if (Date.now() < end) requestAnimationFrame(frame);
+    })();
 
-      setTimeout(() => clearInterval(fireworkInterval), 3000);
-    };
-  </script>
+    /* -----------------------------------------
+       MUCH LONGER FIREWORKS (10 seconds)
+    ------------------------------------------ */
+    let fireworkInterval = setInterval(() => {
+      confetti({
+        particleCount: 120,
+        spread: 120,
+        startVelocity: 50,
+        ticks: 200,
+        origin: { x: Math.random(), y: Math.random() * 0.5 }
+      });
+    }, 500); // more frequent bursts
+
+    setTimeout(() => clearInterval(fireworkInterval), 10000); // 10 seconds
+  };
+</script>
+
 
 </body>
 </html>
