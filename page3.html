@@ -20,11 +20,24 @@
   <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
 
   <style>
-    body, html {
+    /* Scrollable but scrollbar hidden */
+    html, body {
       height: 100%;
       margin: 0;
+      overflow-y: auto; /* enable vertical scroll */
+      -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+    }
+    body::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    /* Prevent horizontal scroll */
+    body {
       overflow-x: hidden;
     }
+
     #vanta-bg {
       position: fixed;
       top: 0;
@@ -33,6 +46,7 @@
       height: 100%;
       z-index: -1;
     }
+
     /* Swiper slide animation effect */
     .swiper-slide {
       transition: transform 0.5s ease, filter 0.5s ease;
@@ -97,12 +111,12 @@
   <!-- Description -->
   <div class="mt-8 max-w-3xl text-justify text-base sm:text-lg md:text-xl text-gray-200 relative z-10
             animate__animated animate__fadeInUp animate__delay-1s">
-  <p>
-    Friends would describe me as playful, resourceful, and cheerful. I enjoy Indie pop and Filipino rock, and if I had a personal theme song, it would reflect my fun-loving 
-    nature. People are often surprised to find that I’m not shy at all—once we’re close, I can be quite playful! If I could instantly master a skill, it would be public 
-    speaking and athleticism. I’m a night owl, as I find I’m most creative and productive during nighttime.
-  </p>
-</div>
+    <p>
+      Friends would describe me as playful, resourceful, and cheerful. I enjoy Indie pop and Filipino rock, and if I had a personal theme song, it would reflect my fun-loving 
+      nature. People are often surprised to find that I’m not shy at all—once we’re close, I can be quite playful! If I could instantly master a skill, it would be public 
+      speaking and athleticism. I’m a night owl, as I find I’m most creative and productive during nighttime.
+    </p>
+  </div>
 
   <!-- Navigation Buttons -->
   <div class="flex space-x-8 mt-12 relative z-10

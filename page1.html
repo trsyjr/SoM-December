@@ -3,102 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feature of the Month</title>
+  <title>Feature Podium</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Scrollable when zoomed, scrollbar hidden */
+    html, body {
+      overflow: auto;  /* allow scroll if content overflows */
+      height: 100%;
+    }
+
+    /* Hide scrollbar - Chrome, Safari, Opera */
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar - Firefox */
+    body {
+      scrollbar-width: none;
+    }
+
+    /* Profile image */
+    .profile-img {
+      width: clamp(14rem, 20vw, 20rem);
+      height: clamp(14rem, 20vw, 20rem);
+    }
+
+    /* Trophy image */
+    .trophy-img {
+      width: clamp(5rem, 8vw, 8rem);
+      height: clamp(5rem, 8vw, 8rem);
+    }
+
+    /* Podium blocks */
+    .podium-block {
+      width: clamp(3rem, 6vw, 8rem);
+      height: clamp(3rem, 6vw, 8rem);
+    }
+
+    /* Text scaling */
+    .name-text {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+    }
+    .position-text {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+    }
+
+    /* Navigation buttons */
+    .nav-btn {
+      font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+      padding: clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 2rem);
+    }
+  </style>
 </head>
 
-<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen font-sans px-4 relative overflow-hidden">
+<body class="bg-gray-900 text-white font-sans px-4 flex flex-col items-center relative">
 
   <!-- MAIN CONTENT -->
-  <div class="relative z-10 flex flex-col items-center space-y-4 mt-16 sm:mt-12 md:mt-16">
+  <div class="relative z-10 flex flex-col items-center space-y-4 mt-16">
 
     <!-- Profile Image -->
     <img src="Assets/rider1.jpg" alt="Rider 1"
-         class="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full 
-                object-cover border-4 border-red-600 shadow-lg
+         class="profile-img rounded-full object-cover border-4 border-red-600 shadow-lg
                 animate__animated animate__zoomIn animate__slow">
 
     <!-- Name -->
-    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-red-500 text-center leading-none
+    <h2 class="name-text font-bold text-red-500 text-center leading-none
                animate__animated animate__fadeInUp animate__delay-1s">
       GELVES C. ALMIÑE
     </h2>
 
     <!-- Position -->
-    <p class="text-lg sm:text-xl md:text-2xl text-green-500 text-center
+    <p class="position-text text-green-500 text-center
               animate__animated animate__fadeInUp animate__delay-2s">
       PROJECT DEVELOPMENT OFFICER III
     </p>
 
     <!-- Podium -->
-    <div class="flex items-end justify-center mt-12 space-x-4 sm:space-x-6 md:space-x-8 w-full max-w-xl
+    <div class="flex items-end justify-center mt-12 space-x-4 w-full max-w-xl
                 animate__animated animate__fadeInUp animate__delay-3s">
 
       <!-- 2nd -->
       <div class="flex flex-col items-center">
-        <div class="bg-gray-700 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-t-md"></div>
-        <p class="mt-2 text-white text-sm sm:text-base md:text-base">2nd</p>
+        <div class="podium-block bg-gray-700 rounded-t-md"></div>
+        <p class="mt-2 text-white position-text">2nd</p>
       </div>
 
       <!-- 1st -->
       <div class="flex flex-col items-center">
         <img src="Assets/TROPHY.png" alt="1st Place"
-             class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover shadow-lg mb-2 
+             class="trophy-img object-cover shadow-lg mb-2
                     animate__animated animate__bounceIn animate__delay-3s">
-        <div class="bg-red-600 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-t-md shadow-lg"></div>
-        <p class="mt-2 text-white font-bold text-sm sm:text-base md:text-base">1st</p>
+        <div class="podium-block bg-red-600 rounded-t-md shadow-lg"></div>
+        <p class="mt-2 text-white font-bold position-text">1st</p>
       </div>
 
       <!-- 3rd -->
       <div class="flex flex-col items-center">
-        <div class="bg-gray-700 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-t-md"></div>
-        <p class="mt-2 text-white text-sm sm:text-base md:text-base">3rd</p>
+        <div class="podium-block bg-gray-700 rounded-t-md"></div>
+        <p class="mt-2 text-white position-text">3rd</p>
       </div>
 
     </div>
   </div>
 
   <!-- Navigation -->
-  <div class="flex space-x-4 sm:space-x-6 md:space-x-8 mt-12 z-10 relative
+  <div class="flex space-x-4 mt-12 z-10 relative
               animate__animated animate__fadeIn animate__delay-4s">
     <a href="index.html"
-       class="bg-gray-700 px-6 py-3 sm:px-8 sm:py-3 rounded-full hover:bg-gray-600 transition text-sm sm:text-base md:text-base">
+       class="nav-btn bg-gray-700 rounded-full hover:bg-gray-600 transition">
       Prev
     </a>
     <a href="page2.html"
-       class="bg-red-600 px-6 py-3 sm:px-8 sm:py-3 rounded-full hover:bg-red-700 transition text-sm sm:text-base md:text-base">
+       class="nav-btn bg-red-600 rounded-full hover:bg-red-700 transition">
       Next
     </a>
   </div>
 
   <!-- Confetti -->
   <script>
-  window.onload = () => {
-    const duration = 6000;
-    const end = Date.now() + duration;
+    window.onload = () => {
+      const duration = 6000;
+      const end = Date.now() + duration;
 
-    (function frame() {
-      confetti({ particleCount: 6, angle: 60, spread: 70, origin: { x: 0 } });
-      confetti({ particleCount: 6, angle: 120, spread: 70, origin: { x: 1 } });
-      if (Date.now() < end) requestAnimationFrame(frame);
-    })();
+      (function frame() {
+        confetti({ particleCount: 6, angle: 60, spread: 70, origin: { x: 0 } });
+        confetti({ particleCount: 6, angle: 120, spread: 70, origin: { x: 1 } });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
 
-    let fireworkInterval = setInterval(() => {
-      confetti({
-        particleCount: 120,
-        spread: 120,
-        startVelocity: 50,
-        ticks: 200,
-        origin: { x: Math.random(), y: Math.random() * 0.5 }
-      });
-    }, 500);
+      let fireworkInterval = setInterval(() => {
+        confetti({
+          particleCount: 120,
+          spread: 120,
+          startVelocity: 50,
+          ticks: 200,
+          origin: { x: Math.random(), y: Math.random() * 0.5 }
+        });
+      }, 500);
 
-    setTimeout(() => clearInterval(fireworkInterval), 10000);
-  };
+      setTimeout(() => clearInterval(fireworkInterval), 10000);
+    };
   </script>
 
 </body>
