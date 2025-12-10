@@ -124,6 +124,14 @@ body {
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("4uCGVPBz3H1dGhGwQ"); // <-- replace with your EmailJS PUBLIC KEY
+  })();
+</script>
+
+
 <script>
   // Initialize Swiper
   const swiper = new Swiper(".mySwiper", {
@@ -160,15 +168,30 @@ body {
   feedbackBtn.addEventListener('click', () => feedbackModal.classList.remove('hidden'));
   closeModal.addEventListener('click', () => feedbackModal.classList.add('hidden'));
   submitFeedback.addEventListener('click', () => {
-    const feedback = document.getElementById('feedbackText').value;
-    if(feedback.trim() !== ""){
-      alert("Feedback submitted: " + feedback);
-      document.getElementById('feedbackText').value = '';
+  const feedback = document.getElementById('feedbackText').value.trim();
+
+  if (feedback === "") {
+    alert("Please write something before submitting.");
+    return;
+  }
+
+  // Prepare template data
+  const templateParams = {
+    feedback_message: feedback
+  };
+
+  // Send email via EmailJS
+  emailjs.send("service_mqqndw9", "template_et2og3p", templateParams)
+    .then(() => {
+      alert("Thank you! Your feedback has been sent successfully.");
+      document.getElementById('feedbackText').value = "";
       feedbackModal.classList.add('hidden');
-    } else {
-      alert("Please write something before submitting.");
-    }
-  });
+    })
+    .catch((error) => {
+      console.error("EmailJS error:", error);
+      alert("Oops! Something went wrong while sending your feedback.");
+    });
+});
 </script>
 
 </body>
